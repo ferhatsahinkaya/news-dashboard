@@ -28,8 +28,11 @@ class DashboardItems extends React.Component {
 class Source extends React.Component {
   render() {
     return (
-      <div className="source">
-        {this.props.id}
+      <div className="card">
+        <div class="container">
+          <h4><b>{this.props.name}</b></h4>
+          <p>${this.props.description}</p>
+        </div>
       </div>
     )
   }
