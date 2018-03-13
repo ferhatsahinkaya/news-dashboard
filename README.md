@@ -1,2 +1,2 @@
-# sports-dashboard
-Sports Dashboard
+# news-dashboard
+News Dashboard

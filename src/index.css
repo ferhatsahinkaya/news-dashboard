@@ -6,8 +6,8 @@
 
 .card.selected {
     box-shadow: 0 4px 8px 0 limegreen;
+    background-color: limegreen;
     text-align: center;
-    background-color: limegreen
 }
 
 /* On mouse-over, add a deeper shadow */

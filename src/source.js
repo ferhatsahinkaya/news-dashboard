@@ -1,21 +1,31 @@
 import React from 'react';
 
 export default class Source extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      selected : false,
-      cardStyle : 'card notselected'
+      selected: props.selected,
+      cardStyle: this.getCardStyle(props.selected)
     }
     this.onClick = this.onClick.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      cardStyle: this.getCardStyle(nextProps.selected)
+    });
+  }
+
+  getCardStyle(value) {
+    return value ? 'card selected' : 'card notselected';
   }
 
   onClick() {
     this.setState({
         selected : !this.state.selected,
-        cardStyle: !this.state.selected ? 'card selected' : 'card notselected'
-    });
+        cardStyle: this.getCardStyle(!this.state.selected)
+    }, () => this.state.selected ? this.props.selectedCallback(this.props.id) : this.props.deselectedCallback(this.props.id) );
   }
 
   render() {
