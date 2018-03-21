@@ -7,12 +7,31 @@ const NewsAPI = require('newsapi');
 
 const newsapi = new NewsAPI(process.env.REACT_APP_API_KEY);
 
+const capitalizeFirstLetter = value => !value || value.charAt(0).toUpperCase() + value.slice(1);
+
+const valueToCategory = source => {
+  let obj = {};
+  obj['value'] = source;
+  obj['label'] = capitalizeFirstLetter(source);
+  return obj;
+};
+
+const filter = (filter, extractor) => source => extractor(source).toLowerCase().indexOf(filter.toLowerCase()) >= 0;
+const isFilterSet = (filter, defaultValue) => filter && (filter !== defaultValue);
+
+const filterBy = theFilter => sources =>
+  isFilterSet(theFilter.filter, theFilter.defaultValue) ?
+    sources.filter(filter(theFilter.filter, theFilter.extractor)) :
+    sources.slice(0);
+
 export class Sources extends React.Component {
   constructor() {
     super();
 
     this.state = {
       sources: [],
+      categories: ['all'],
+      categoryFilter: valueToCategory('all'),
       selectedSources: new Set([''])
     }
   }
@@ -20,56 +39,57 @@ export class Sources extends React.Component {
   componentDidMount() {
     newsapi.v2.sources()
     .then(response => {
-      this.setState({sources : response.sources})
+      this.setState({
+        sources : response.sources,
+        categories: this.state.categories.map(valueToCategory)
+                    .concat(response.sources
+                      .map(source => source.category)
+                      .filter((value, index, self) => self.indexOf(value) === index)
+                      .map(valueToCategory))
+      })
     });
   }
 
   componentWillReceiveProps(newProps) {
     const selectedSources = this.state.selectedSources;
-    selectedSources.has(newProps.id) ?
-      selectedSources.delete(newProps.id) :
-      selectedSources.add(newProps.id);
+
+    newProps.selected ?
+      selectedSources.add(newProps.id) :
+      selectedSources.delete(newProps.id);
 
     this.setState({
       selectedSources: selectedSources
     });
   }
 
-  render() {
-    const nameFilter = filter => source => source.name.toLowerCase().indexOf(filter.toLowerCase()) >= 0;
-
-    const filteredSources = this.state.nameFilter ?
-      this.state.sources.filter(nameFilter(this.state.nameFilter)) :
-      this.state.sources.slice(0);
-
-    const furtherFilteredSources = this.state.categoryFilter ?
-        filteredSources.filter(source => source.category.toLowerCase().indexOf(this.state.categoryFilter.value.toLowerCase()) >= 0) :
-        filteredSources.slice(0);
-
-    const valueToCategory = source => {
-      let obj = {};
-      obj['label'] = obj['value'] = source;
-      return obj;
+  filters() {
+    const categoryFilter = {
+        defaultValue: 'all',
+        filter: this.state.categoryFilter.value,
+        extractor: source => source.category
     };
 
-    const categories = this.state.sources
-        .map(source => source.category)
-        .filter((value, index, self) => self.indexOf(value) === index)
-        .map(valueToCategory);
+    const nameFilter = {
+        filter: this.state.nameFilter,
+        extractor: source => source.name
+    };
 
-    alert('categories: ' + JSON.stringify(categories));
+    return [nameFilter, categoryFilter];
+  }
 
-    // alert('value: ' + JSON.stringify(value));
-    // alert('filteredSources: ' + JSON.stringify(filteredSources));
+  render() {
+    const filteredSources = this.filters()
+                              .map(filterType => filterBy(filterType))
+                              .reduceRight((filteredSources, func) => func(filteredSources), this.state.sources);
 
     return (
       <div>
         <div>
           <TextFilter onFilter={({target: {value: nameFilter}}) => this.setState({nameFilter})} placeHolder="Source" />
-          <Select value='Business' onChange={categoryFilter => this.setState({categoryFilter})} placeHolder="Category" simpleValue multi options={categories}/>
+          <Select value={this.state.categoryFilter} onChange={categoryFilter => this.setState({categoryFilter})} options={this.state.categories}/>
         </div>
         <div class="card-columns">
-          { furtherFilteredSources
+          { filteredSources
               .map(source => <Source key={source.id}
                                      id={source.id}
                                      name={source.name}

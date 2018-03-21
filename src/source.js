@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import React from 'react';
 
-import { toggleSource } from './actions'
+import { clickSource } from './actions'
 
 export class Source extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ export class Source extends React.Component {
   }
 
   onClick() {
-    this.props.toggleSource(this.props.id);
+    this.props.clickSource(this.props.id, !this.props.selected);
   }
 
   render() {
@@ -33,7 +33,7 @@ export class Source extends React.Component {
 const mapStateToProps = (state, ownProps) => ({});
 
 const mapDispatchToProps = {
-  toggleSource
+  clickSource
 };
 
 const SourceContainer = connect(mapStateToProps, mapDispatchToProps)(Source);

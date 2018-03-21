@@ -1,4 +1,5 @@
-export const toggleSource = id => ({
-  type: "toggle_source",
-  id
+export const clickSource = (id, selected) => ({
+  type: "click_source",
+  id,
+  selected
 });
