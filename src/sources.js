@@ -1,6 +1,6 @@
+import {TextFilter} from 'react-text-filter';
 import React from 'react';
 import Source from './source'
-import {TextFilter} from 'react-text-filter';
 const NewsAPI = require('newsapi');
 
 const newsapi = new NewsAPI(process.env.REACT_APP_API_KEY);
@@ -10,12 +10,8 @@ export default class Sources extends React.Component {
     super();
 
     this.state = {
-      sources: [],
-      selectedSources: new Set([''])
+      sources: []
     }
-
-    this.sourceSelected = this.sourceSelected.bind(this);
-    this.sourceDeselected = this.sourceDeselected.bind(this);
   }
 
   componentDidMount() {
@@ -23,16 +19,6 @@ export default class Sources extends React.Component {
     .then(response => {
       this.setState({sources : response.sources})
     });
-  }
-
-  sourceSelected(id) {
-    this.setState({selectedSources: this.state.selectedSources.add(id)});
-  }
-
-  sourceDeselected(id) {
-    let sources = this.state.selectedSources;
-    sources.delete(id);
-    this.setState({selectedSources: sources});
   }
 
   render() {
@@ -52,10 +38,7 @@ export default class Sources extends React.Component {
                                      id={source.id}
                                      name={source.name}
                                      description={source.description}
-                                     url={source.url}
-                                     selected={this.state.selectedSources.has(source.id)}
-                                     selectedCallback={this.sourceSelected}
-                                     deselectedCallback={this.sourceDeselected}/>) }
+                                     url={source.url} />) }
         </div>
       </div>
     )

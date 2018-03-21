@@ -1,36 +1,27 @@
+import { connect } from "react-redux";
 import React from 'react';
 
-export default class Source extends React.Component {
+import { selectSource, deselectSource } from './actions'
+
+export class Source extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      selected: props.selected,
-      cardStyle: this.getCardStyle(props.selected)
-    }
+    // this.state = {
+    //   selected: props.selected
+    // }
     this.onClick = this.onClick.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      cardStyle: this.getCardStyle(nextProps.selected)
-    });
-  }
-
-  getCardStyle(value) {
-    return value ? 'card selected' : 'card notselected';
-  }
-
   onClick() {
-    this.setState({
-        selected : !this.state.selected,
-        cardStyle: this.getCardStyle(!this.state.selected)
-    }, () => this.state.selected ? this.props.selectedCallback(this.props.id) : this.props.deselectedCallback(this.props.id) );
+    this.props.selected ?
+        this.props.deselectSource(this.props.id) :
+        this.props.selectSource(this.props.id);
   }
 
   render() {
     return (
-      <div class={this.state.cardStyle} onClick={this.onClick}>
+      <div class={this.props.selected ? 'card selected' : 'card notselected'} onClick={this.onClick}>
         <div class="card-header">
           <div class="card-title">
             <a href={this.props.url} class="btn btn-link" target="_blank">{this.props.name}</a>
@@ -43,3 +34,16 @@ export default class Source extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (state, ownProps) => ({
+  selected: state.sourceSelection.selected
+});
+
+const mapDispatchToProps = {
+  selectSource,
+  deselectSource
+};
+
+const SourceContainer = connect(mapStateToProps, mapDispatchToProps)(Source);
+
+export default SourceContainer;
