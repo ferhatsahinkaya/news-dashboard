@@ -1,9 +1,7 @@
 export const sourceSelection = (state = {}, action) => {
   switch (action.type) {
-    case 'select_source':
-      return {id: action.id, selected: true};
-    case 'deselect_source':
-      return {id: action.id, selected: false}
+    case 'toggle_source':
+      return {id: action.id};
     default:
       return state;
   }

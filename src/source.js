@@ -1,22 +1,17 @@
 import { connect } from "react-redux";
 import React from 'react';
 
-import { selectSource, deselectSource } from './actions'
+import { toggleSource } from './actions'
 
 export class Source extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.state = {
-    //   selected: props.selected
-    // }
     this.onClick = this.onClick.bind(this);
   }
 
   onClick() {
-    this.props.selected ?
-        this.props.deselectSource(this.props.id) :
-        this.props.selectSource(this.props.id);
+    this.props.toggleSource(this.props.id);
   }
 
   render() {
@@ -35,13 +30,10 @@ export class Source extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  selected: state.sourceSelection.selected
-});
+const mapStateToProps = (state, ownProps) => ({});
 
 const mapDispatchToProps = {
-  selectSource,
-  deselectSource
+  toggleSource
 };
 
 const SourceContainer = connect(mapStateToProps, mapDispatchToProps)(Source);
