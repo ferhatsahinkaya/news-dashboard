@@ -1,17 +1,14 @@
 import { connect } from "react-redux";
 import React from 'react';
 import Select from 'react-select';
-import Source from './source'
-const NewsAPI = require('newsapi');
-
-const newsapi = new NewsAPI(process.env.REACT_APP_API_KEY);
+import Source from './source';
 
 const capitalizeFirstLetter = value => !value || value.charAt(0).toUpperCase() + value.slice(1);
 
-const valueToLabelValuePair = source => {
+const valueToLabelValuePair = value => {
   let obj = {};
-  obj['value'] = source;
-  obj['label'] = capitalizeFirstLetter(source);
+  obj['value'] = value;
+  obj['label'] = capitalizeFirstLetter(value);
   return obj;
 };
 
@@ -23,35 +20,17 @@ const filterBy = theFilter => sources =>
     sources.filter(filter(theFilter.filter, theFilter.extractor)) :
     sources.slice(0);
 
-const extractToLabelValuePair = (sources, values, extractor) => values.map(valueToLabelValuePair)
-            .concat(sources
-            .map(extractor)
-            .filter((value, index, self) => self.indexOf(value) === index)
-            .map(valueToLabelValuePair));
+const convertToValuePair = values => values.map(valueToLabelValuePair);
 
 export class Sources extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      sources: [],
-      categories: ['all'],
       categoryFilter: valueToLabelValuePair('all'),
-      languages: ['all'],
       languageFilter: valueToLabelValuePair('all'),
       selectedSources: new Set([''])
     }
-  }
-
-  componentDidMount() {
-    newsapi.v2.sources()
-    .then(response => {
-      this.setState({
-        sources : response.sources,
-        categories: extractToLabelValuePair(response.sources, this.state.categories, source => source.category),
-        languages: extractToLabelValuePair(response.sources, this.state.languages, source => source.language)
-      })
-    });
   }
 
   componentWillReceiveProps(newProps) {
@@ -90,7 +69,7 @@ export class Sources extends React.Component {
   render() {
     const filteredSources = this.filters()
                               .map(filterType => filterBy(filterType))
-                              .reduceRight((filteredSources, func) => func(filteredSources), this.state.sources);
+                              .reduceRight((filteredSources, func) => func(filteredSources), this.props.sources);
 
     return (
       <div>
@@ -101,13 +80,13 @@ export class Sources extends React.Component {
           <div class="form-group row">
             <label for="category-filter" class="col-2 col-form-label">Category:</label>
             <div class="col-10">
-              <Select id="category-filter" value={this.state.categoryFilter} onChange={categoryFilter => this.setState({categoryFilter})} options={this.state.categories}/>
+              <Select id="category-filter" value={this.state.categoryFilter} onChange={categoryFilter => this.setState({categoryFilter})} options={convertToValuePair(this.props.categories)}/>
             </div>
           </div>
           <div class="form-group row">
             <label for="language-filter" class="col-2 col-form-label">Language:</label>
             <div class="col-10">
-              <Select id="language-filter" value={this.state.languageFilter} onChange={languageFilter => this.setState({languageFilter})} options={this.state.languages}/>
+              <Select id="language-filter" value={this.state.languageFilter} onChange={languageFilter => this.setState({languageFilter})} options={convertToValuePair(this.props.languages)}/>
             </div>
           </div>
         </div>
