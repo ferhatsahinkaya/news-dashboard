@@ -3,17 +3,8 @@ export const clickSource = id => ({
   id
 })
 
-export const filterByName = value => ({
-  type: "filter_by_name",
-  value
-})
-
-export const filterByCategory = value => ({
-  type: "filter_by_category",
-  value
-})
-
-export const filterByLanguage = value => ({
-  type: "filter_by_language",
+export const filterSource = (attribute, value) => ({
+  type: "filter_source",
+  attribute,
   value
 })

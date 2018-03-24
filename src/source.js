@@ -4,10 +4,6 @@ import React from 'react'
 import { clickSource } from './actions'
 
 export class Source extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     return (
       <div class={this.props.selected ? 'card selected' : 'card notselected'} onClick={() => this.props.clickSource(this.props.id)}>

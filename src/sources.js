@@ -1,26 +1,21 @@
-import { connect } from "react-redux";
-import React from 'react';
-import Select from 'react-select';
-import SourceFilters from './source-filters';
-import Source from './source';
+import { connect } from "react-redux"
+import React from 'react'
+import SourceFilters from './source-filters'
+import Source from './source'
 
-const filter = (filter, extractor) => source => extractor(source).toLowerCase().indexOf(filter.toLowerCase()) >= 0;
-const isFilterSet = (filter, defaultValue) => filter && (filter !== defaultValue);
+const filter = (filter, extractor) => source => extractor(source).toLowerCase().indexOf(filter.toLowerCase()) >= 0
+const isFilterSet = (filter, defaultValue) => filter && (filter !== defaultValue)
 
 const filterBy = theFilter => sources =>
   isFilterSet(theFilter.filterValue, theFilter.defaultValue) ?
     sources.filter(filter(theFilter.filterValue, theFilter.extractor)) :
-    sources.slice(0);
+    sources.slice(0)
 
 export class Sources extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const filteredSources = this.props.sourceFilters
                               .map(filterType => filterBy(filterType))
-                              .reduceRight((filteredSources, func) => func(filteredSources), this.props.sources);
+                              .reduceRight((filteredSources, func) => func(filteredSources), this.props.sources)
 
     return (
       <div>
@@ -44,8 +39,8 @@ export class Sources extends React.Component {
 const mapStateToProps = state => ({
   sourceFilters: state.SourceFilters,
   selectedSources: state.SelectedSources
-});
+})
 
-const SourcesContainer = connect(mapStateToProps)(Sources);
+const SourcesContainer = connect(mapStateToProps)(Sources)
 
-export default SourcesContainer;
+export default SourcesContainer
