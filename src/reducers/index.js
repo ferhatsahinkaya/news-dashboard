@@ -1,8 +1,10 @@
-import sourceSelection from './sourceSelection'
-import { combineReducers } from "redux";
+import SelectedSources from './selected-sources'
+import SourceFilters from './source-filters'
+import { combineReducers } from "redux"
 
 export const reducers = combineReducers({
-  sourceSelection
-});
+  SelectedSources,
+  SourceFilters
+})
 
-export default reducers;
+export default reducers
