@@ -8,7 +8,7 @@ export default class NewsBlog extends React.Component {
     return (
       <div>
         <BlogNavigation />
-        <ArticlesDashboard sources={['abc-news', 'bbc-news']} />
+        <ArticlesDashboard sources={['abc-news', 'bbc-news', 'bbc-sport', 'bloomberg', 'globo']} />
       </div>
     )
   }
