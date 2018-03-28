@@ -15,7 +15,7 @@ export default class Article extends React.Component {
           <div class="card-text">{this.props.description}</div>
         </div>
         <div class="card-footer">
-          <small class="text-muted">Published {this.getTimeDiffFromNow(this.props.publishedAt)} minutes ago by {this.props.author}</small>
+          <small class="text-muted">Published {this.getTimeDiffFromNow(this.props.publishedAt)}ago by {this.props.author}</small>
         </div>
       </div>
     )
