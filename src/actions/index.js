@@ -8,3 +8,9 @@ export const filterSource = (attribute, value) => ({
   attribute,
   value
 })
+
+export const filterArticle = (attribute, value) => ({
+  type: "filter_article",
+  attribute,
+  value
+})
