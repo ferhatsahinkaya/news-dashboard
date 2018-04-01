@@ -10,31 +10,38 @@ export class ArticlesDashboard extends React.Component {
     super()
 
     this.state = {
+      articleFilters: [],
       articles: []
     }
   }
 
-  componentDidMount() {
-    let retrieveArticlesStartingFromPage = (page) => {
-      newsapi.v2.topHeadlines({
-        sources: this.props.sources.join(','),
-        page: page
-      })
-      .then(response => {
+  retrieveArticles = (page, filters) => {
+    newsapi.v2.topHeadlines({
+      sources: this.props.sources.join(','),
+      q: filters[0].filterValue,
+      page: page
+    })
+    .then(response => {
+      if(JSON.stringify(filters) === JSON.stringify(this.props.articleFilters)) {
         this.setState({
           articles: this.state.articles.concat(response.articles)
+        }, () => {
+          if(response.articles.length > 0) {
+            this.retrieveArticles(page+1, filters)
+          }
         })
-
-        if(response.articles.length > 0) {
-          retrieveArticlesStartingFromPage(page+1)
-        }
-      })
-    }
-
-    retrieveArticlesStartingFromPage(1)
+      }
+    })
   }
 
   render() {
+    if(JSON.stringify(this.state.articleFilters) !== JSON.stringify(this.props.articleFilters)) {
+      this.setState({
+        articleFilters: this.props.articleFilters,
+        articles: []
+      }, () => this.retrieveArticles(1, this.props.articleFilters))
+    }
+
     return (
       <div>
         <Articles articles={this.state.articles} />

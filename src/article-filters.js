@@ -7,7 +7,7 @@ export class ArticleFilters extends React.Component {
     return (
       <div class="container">
         <div class="form-group row mt-2">
-          <input type="text" className="form-control form-control-lg" placeholder="Keyword" onChange={event => this.props.filterArticle('name', event.target.value)}/>
+          <input type="text" className="form-control form-control-lg" placeholder="Keyword" onChange={event => this.props.filterArticle('keyword', event.target.value)}/>
         </div>
       </div>
     )
