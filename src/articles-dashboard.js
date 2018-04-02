@@ -4,30 +4,31 @@ import Articles from './articles'
 
 const NewsAPI = require('newsapi')
 const newsapi = new NewsAPI(process.env.REACT_APP_API_KEY)
+const articleRetriever = [ { filter: 'top-headlines', retriever: newsapi.v2.topHeadlines },
+                           { filter: 'everything', retriever: newsapi.v2.everything } ]
 
 export class ArticlesDashboard extends React.Component {
   constructor() {
     super()
 
     this.state = {
-      articleFilters: [],
       articles: []
     }
   }
 
-  retrieveArticles = (page, filters) => {
-    newsapi.v2.topHeadlines({
+  retrieveArticles = (page) => {
+    articleRetriever.find(retriever => retriever.filter === this.props.articleType).retriever({
       sources: this.props.sources.join(','),
-      q: filters[0].filterValue,
+      from: '2018-04-02',
       page: page
     })
     .then(response => {
-      if(JSON.stringify(filters) === JSON.stringify(this.props.articleFilters)) {
+      if(this.state.articleType === this.props.articleType) {
         this.setState({
           articles: this.state.articles.concat(response.articles)
         }, () => {
           if(response.articles.length > 0) {
-            this.retrieveArticles(page+1, filters)
+            this.retrieveArticles(page+1)
           }
         })
       }
@@ -35,11 +36,11 @@ export class ArticlesDashboard extends React.Component {
   }
 
   render() {
-    if(JSON.stringify(this.state.articleFilters) !== JSON.stringify(this.props.articleFilters)) {
+    if(this.state.articleType !== this.props.articleType) {
       this.setState({
-        articleFilters: this.props.articleFilters,
+        articleType: this.props.articleType,
         articles: []
-      }, () => this.retrieveArticles(1, this.props.articleFilters))
+      }, () => this.retrieveArticles(1))
     }
 
     return (
@@ -51,7 +52,7 @@ export class ArticlesDashboard extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  articleFilters: state.ArticleFilters
+  articleType: state.ArticleFilters.find(filter => filter.type === 'level').filterValue
 })
 
 const ArticlesDashboardContainer = connect(mapStateToProps)(ArticlesDashboard)
