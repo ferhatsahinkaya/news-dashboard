@@ -1,7 +1,7 @@
 import { connect } from "react-redux"
 import React from 'react'
 import Select from 'react-select'
-import { filterSource } from './actions'
+import { filterSource } from '../../actions'
 
 const capitalizeFirstLetter = value => !value || value.charAt(0).toUpperCase() + value.slice(1)
 

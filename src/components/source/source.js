@@ -1,7 +1,7 @@
 import { connect } from "react-redux"
 import React from 'react'
 
-import { clickSource } from './actions'
+import { clickSource } from '../../actions'
 
 export class Source extends React.Component {
   render() {

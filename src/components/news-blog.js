@@ -1,6 +1,6 @@
 import BlogNavigation from './blog-navigation'
-import SourceDashboard from './source-dashboard'
-import ArticlesDashboard from './articles-dashboard'
+import SourceDashboard from './source/source-dashboard'
+import ArticlesDashboard from './article/articles-dashboard'
 import React from 'react'
 
 export default class NewsBlog extends React.Component {

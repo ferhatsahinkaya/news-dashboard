@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import NewsBlog from './news-blog'
+import NewsBlog from './components/news-blog'
 import { store } from './store'
 import './index.css'
 
