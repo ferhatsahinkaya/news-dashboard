@@ -14,3 +14,8 @@
 .card:hover {
     box-shadow: 0 8px 16px 0 grey;
 }
+
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box .react-datepicker__time-list {
+    padding-left: 0;
+    padding-right: 0;
+}

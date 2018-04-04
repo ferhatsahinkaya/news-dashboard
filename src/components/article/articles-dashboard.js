@@ -4,8 +4,14 @@ import Articles from './articles'
 
 const NewsAPI = require('newsapi')
 const newsapi = new NewsAPI(process.env.REACT_APP_API_KEY)
-const articleRetriever = [ { filter: 'top-headlines', retriever: newsapi.v2.topHeadlines },
-                           { filter: 'everything', retriever: newsapi.v2.everything } ]
+const articleRetriever = [ { filter: 'top-headlines',
+                             retriever: (page, props) => newsapi.v2.topHeadlines({ sources: props.sources.join(','),
+                                                                                   page: page }) },
+                           { filter: 'everything',
+                             retriever: (page, props) => newsapi.v2.everything({ sources: props.sources.join(','),
+                                                                                 from: props.fromDate,
+                                                                                 to: props.toDate,
+                                                                                 page: page }) } ]
 
 export class ArticlesDashboard extends React.Component {
   constructor() {
@@ -16,14 +22,14 @@ export class ArticlesDashboard extends React.Component {
     }
   }
 
+  hasFilterChanged = () => (this.state.articleType !== this.props.articleType)
+                            || (this.state.fromDate !== this.props.fromDate)
+                            || (this.state.toDate !== this.props.toDate)
+
   retrieveArticles = (page) => {
-    articleRetriever.find(retriever => retriever.filter === this.props.articleType).retriever({
-      sources: this.props.sources.join(','),
-      from: '2018-04-02',
-      page: page
-    })
+    articleRetriever.find(retriever => retriever.filter === this.props.articleType).retriever(page, this.props)
     .then(response => {
-      if(this.state.articleType === this.props.articleType) {
+      if(!this.hasFilterChanged()) {
         this.setState({
           articles: this.state.articles.concat(response.articles)
         }, () => {
@@ -36,9 +42,11 @@ export class ArticlesDashboard extends React.Component {
   }
 
   render() {
-    if(this.state.articleType !== this.props.articleType) {
+    if(this.hasFilterChanged()) {
       this.setState({
         articleType: this.props.articleType,
+        fromDate: this.props.fromDate,
+        toDate: this.props.toDate,
         articles: []
       }, () => this.retrieveArticles(1))
     }
@@ -52,7 +60,9 @@ export class ArticlesDashboard extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  articleType: state.ArticleFilters.find(filter => filter.type === 'level').filterValue
+  articleType: state.ArticleFilters.find(filter => filter.type === 'level').filterValue,
+  fromDate: state.ArticleFilters.find(filter => filter.type === 'fromDate').filterValue,
+  toDate: state.ArticleFilters.find(filter => filter.type === 'toDate').filterValue
 })
 
 const ArticlesDashboardContainer = connect(mapStateToProps)(ArticlesDashboard)
