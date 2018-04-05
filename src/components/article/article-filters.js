@@ -16,7 +16,7 @@ const valueToLabelValuePair = value => {
 }
 
 const convertToValuePair = values => values.map(valueToLabelValuePair)
-const levels = ['top headlines', 'everything']
+const levels = ['top-headlines', 'everything']
 
 export class ArticleFilters extends React.Component {
   render() {

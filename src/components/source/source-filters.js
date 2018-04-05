@@ -19,7 +19,7 @@ export class SourceFilters extends React.Component {
     return (
       <div class="container">
         <div class="form-group row mt-2">
-          <input type="text" className="form-control form-control-lg" placeholder="Source" onChange={event => this.props.filterSource('name', event.target.value)}/>
+          <input type="text" className="form-control form-control-lg" placeholder="Source" value={this.props.nameFilterValue} onChange={event => this.props.filterSource('name', event.target.value)}/>
         </div>
         <div class="form-group row">
           <label for="category-filter" class="col-2 col-form-label">Category:</label>
@@ -39,6 +39,7 @@ export class SourceFilters extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  nameFilterValue: state.SourceFilters.find(filter => filter.type === 'name').filterValue,
   categoryFilterValue: state.SourceFilters.find(filter => filter.type === 'category').filterValue,
   languageFilterValue: state.SourceFilters.find(filter => filter.type === 'language').filterValue
 })

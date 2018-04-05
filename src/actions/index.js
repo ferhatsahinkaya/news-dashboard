@@ -1,3 +1,8 @@
+export const goToPage = page => ({
+  type: 'go_to_page',
+  page
+})
+
 export const clickSource = id => ({
   type: "click_source",
   id
