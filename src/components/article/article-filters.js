@@ -2,7 +2,8 @@ import { connect } from "react-redux"
 import React from 'react'
 import Select from 'react-select'
 import { filterArticle } from '../../actions'
-import DatePicker from 'react-datepicker';
+import DatePicker from 'react-datepicker'
+import moment from 'moment'
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -35,7 +36,7 @@ export class ArticleFilters extends React.Component {
             <DatePicker className="form-control" showTimeSelect timeFormat="HH:mm" dateFormat="LLL" placeholderText="Start Date" selected={this.props.fromDateFilterValue} onChange={date => this.props.filterArticle('fromDate', date)}/>
           </div>
           <div class="col-4">
-            <DatePicker className="form-control" showTimeSelect timeFormat="HH:mm" dateFormat="LLL" placeholderText="End Date" selected={this.props.toDateFilterValue} onChange={date => this.props.filterArticle('toDate', date)}/>
+            <DatePicker className="form-control" showTimeSelect minDate={this.props.fromDateFilterValue} timeFormat="HH:mm" dateFormat="LLL" placeholderText="End Date" selected={this.props.toDateFilterValue} onChange={date => this.props.filterArticle('toDate', date)}/>
           </div>
         </div>
       </div>
