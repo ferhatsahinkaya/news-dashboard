@@ -1,0 +1,246 @@
+{
+   "status":"ok",
+   "totalResults":20,
+   "articles":[
+      {
+         "source":{
+            "id":"cnn",
+            "name":"CNN"
+         },
+         "author":"Analysis by Stephen Collinson, CNN",
+         "title":"Trump's perceived persecution fuels unrest",
+         "description":"Donald Trump is acting like he feels the walls are closing in.",
+         "url":"https://www.cnn.com/2018/04/11/politics/donald-trump-mueller-investigation/index.html",
+         "urlToImage":"https://cdn.cnn.com/cnnnext/dam/assets/180410065747-01-donald-trump-0409-super-tease.jpg",
+         "publishedAt":"2018-04-11T12:52:00Z"
+      },
+      {
+         "source":{
+            "id":"the-washington-post",
+            "name":"The Washington Post"
+         },
+         "author":null,
+         "title":"House Speaker Paul Ryan will not seek reelection",
+         "description":"The decision is certain to sap morale for Republican already facing difficult midterm elections.",
+         "url":"https://www.washingtonpost.com/powerpost/house-speaker-paul-ryan-will-not-seek-reelection-he-tells-friends-and-colleagues/2018/04/11/0d2719e4-3d83-11e8-8d53-eba0ed2371cc_story.html",
+         "urlToImage":"https://www.washingtonpost.com/rf/image_1484w/2010-2019/WashingtonPost/2018/04/11/National-Politics/Images/ryan_34.jpg?t=20170517",
+         "publishedAt":"2018-04-11T12:51:22Z"
+      },
+      {
+         "source":{
+            "id":"the-washington-post",
+            "name":"The Washington Post"
+         },
+         "author":"https://www.facebook.com/sarahpulliambailey",
+         "title":"Prominent megachurch pastor Bill Hybels resigns from Willow Creek after women allege misconduct",
+         "description":"Hybels resigned just weeks after a series of allegations from several women.",
+         "url":"https://www.washingtonpost.com/news/acts-of-faith/wp/2018/04/10/bill-hybels-prominent-megachurch-pastor-resigns-from-willow-creek-following-allegations/",
+         "urlToImage":"https://www.washingtonpost.com/resizer/dR6_AqLwmZ4HfxUDw1zAu7A2F-E=/1484x0/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/5HEACNIAZY7SPK6SZGFQEUE6OI.jpg",
+         "publishedAt":"2018-04-11T12:33:45Z"
+      },
+      {
+         "source":{
+            "id":"cnn",
+            "name":"CNN"
+         },
+         "author":null,
+         "title":"3 things Donald Trump did wrong in his taunting Russia tweet",
+         "description":null,
+         "url":"https://www.cnn.com/2018/04/11/politics/donald-trump-russia-syria-missile-tweet/index.html",
+         "urlToImage":null,
+         "publishedAt":"2018-04-11T12:30:18Z"
+      },
+      {
+         "source":{
+            "id":"the-washington-post",
+            "name":"The Washington Post"
+         },
+         "author":"https://www.facebook.com/PhilipRuckerWP",
+         "title":"Trump says missiles 'will be coming' to Syria, taunts Russia for vowing to block them",
+         "description":"The president warned of his intentions in an early-morning tweet.",
+         "url":"https://www.washingtonpost.com/politics/trump-says-missiles-will-be-coming-to-syria-taunts-russia-for-vowing-to-block-them/2018/04/11/7dc52fa0-3d7a-11e8-8d53-eba0ed2371cc_story.html",
+         "urlToImage":"https://www.washingtonpost.com/rf/image_1484w/2010-2019/WashingtonPost/2018/04/11/National-Politics/Images/AFP_13V20K.jpg?t=20170517",
+         "publishedAt":"2018-04-11T12:10:56Z"
+      },
+      {
+         "source":{
+            "id":"usa-today",
+            "name":"USA Today"
+         },
+         "author":"Erin Jensen",
+         "title":"Mariah Carey reveals bipolar diagnosis: 'I refuse to allow it to define me'",
+         "description":"Mariah Carey says she \"didn't want to believe it\" when she was diagnosed bipolar in 2001.",
+         "url":"https://www.usatoday.com/story/life/people/2018/04/11/mariah-carey-bipolar-diagnosis-people-magazine/506070002/",
+         "urlToImage":"https://www.gannett-cdn.com/-mm-/3b236787f1c2eb1b6814b9049b422a46941f2ce1/c=0-0-3338-1886&r=x1683&c=3200x1680/local/-/media/2018/04/11/USATODAY/USATODAY/636590272799505545-AP-2018-KIDS-CHOICE-AWARDS---ARRIVALS-98700590.JPG",
+         "publishedAt":"2018-04-11T12:10:43Z"
+      },
+      {
+         "source":{
+            "id":"the-new-york-times",
+            "name":"The New York Times"
+         },
+         "author":"Declan Walsh",
+         "title":"Military Plane Crashes in Algeria, Killing at Least 257",
+         "description":"The transport plane carrying soldiers, civilians and independence fighters slammed into a field shortly after takeoff on Wednesday.",
+         "url":"https://www.nytimes.com/2018/04/11/world/middleeast/algeria-military-plane-crash.html",
+         "urlToImage":"https://static01.nyt.com/images/2018/04/12/world/12Algeria/12Algeria-facebookJumbo.jpg",
+         "publishedAt":"2018-04-11T11:57:40Z"
+      },
+      {
+         "source":{
+            "id":"reuters",
+            "name":"Reuters"
+         },
+         "author":"Reuters Editorial",
+         "title":"Death toll from Indonesia tainted liquor rises to 82",
+         "description":"Eighty-two Indonesians have died and many more have been hospitalized after drinking tainted bootleg liquor last week, police said on Wednesday.",
+         "url":"https://www.reuters.com/article/us-indonesia-alcohol/death-toll-from-indonesia-tainted-liquor-rises-to-82-idUSKBN1HI1LN",
+         "urlToImage":"https://s4.reutersmedia.net/resources/r/?m=02&d=20180411&t=2&i=1250294538&w=1200&r=LYNXMPEE3A0UR",
+         "publishedAt":"2018-04-11T11:23:51Z"
+      },
+      {
+         "source":{
+            "id":null,
+            "name":"Npr.org"
+         },
+         "author":"",
+         "title":"6 Facts About Fake News In The 2016 Election",
+         "description":"One lesson: Social media plays a bigger role in bringing people to fake news sites than it does in bringing them to real news sites.",
+         "url":"https://www.npr.org/2018/04/11/601323233/6-facts-we-know-about-fake-news-in-the-2016-election",
+         "urlToImage":"https://media.npr.org/assets/img/2018/04/10/gettyimages-944424000_wide-a1a34b5e768b9ebb4e76452bf436657c68dc2fac.jpg?s=1400",
+         "publishedAt":"2018-04-11T11:01:36Z"
+      },
+      {
+         "source":{
+            "id":"cbs-news",
+            "name":"CBS News"
+         },
+         "author":"CBS/AP",
+         "title":"Family on road trip goes missing in same county where SUV plunged off cliff",
+         "description":"Witnesses reported a newer-model maroon vehicle went into rain-swollen river",
+         "url":"https://www.cbsnews.com/news/mendocino-county-family-goes-missing-in-same-county-where-suv-plunged-off-cliff/",
+         "urlToImage":"https://cbsnews2.cbsistatic.com/hub/i/r/2018/04/11/dcb9e78e-2774-4fe7-bea9-38af57ce9702/thumbnail/1200x630/47decce749305361ec9c57265b2ab157/missing-family-1399117-10202385772555844-2012412842-o.jpg",
+         "publishedAt":"2018-04-11T10:44:43Z"
+      },
+      {
+         "source":{
+            "id":"bloomberg",
+            "name":"Bloomberg"
+         },
+         "author":"David Joachim, Tom Schoenberg",
+         "title":"First-Class Problem: Pressure Mounts Over EPA Chief's Spending",
+         "description":"Scott Pruitt’s willingness to part with taxpayer money as administrator of the Environmental Protection Agency has drawn rebukes from ethics watchdogs and lawmakers in both parties.",
+         "url":"https://www.bloomberg.com/news/articles/2018-04-11/first-class-problem-pressure-mounts-over-epa-chief-s-spending",
+         "urlToImage":"https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iVQ9q9wQE6a4/v0/1200x800.jpg",
+         "publishedAt":"2018-04-11T10:30:21Z"
+      },
+      {
+         "source":{
+            "id":null,
+            "name":"Bbc.com"
+         },
+         "author":"https://www.facebook.com/bbcnews",
+         "title":"School shooting: Teachers in Pennsylvania get 16in bats after Florida",
+         "description":"The school district admits the move is largely symbolic but the bats serve as a \"last resort\".",
+         "url":"http://www.bbc.com/news/world-us-canada-43724886",
+         "urlToImage":"https://ichef-1.bbci.co.uk/news/1024/branded_news/13268/production/_100804487_gettyimages-651040300.jpg",
+         "publishedAt":"2018-04-11T10:28:21Z"
+      },
+      {
+         "source":{
+            "id":"the-new-york-times",
+            "name":"The New York Times"
+         },
+         "author":null,
+         "title":"New York Today: Can Your Body Predict the Weather?",
+         "description":null,
+         "url":"https://www.nytimes.com/2018/04/11/nyregion/new-york-today-can-your-body-predict-the-weather.html",
+         "urlToImage":null,
+         "publishedAt":"2018-04-11T10:11:17Z"
+      },
+      {
+         "source":{
+            "id":null,
+            "name":"Ibtimes.com"
+         },
+         "author":"Riddhima Kanetkar",
+         "title":"Hypnotherapist Had Sex With 14-Year-Old For Money, Florida Police Say",
+         "description":"According to her social media profiles, McGill is a professional clinical hypnotherapist and runs her own business in Edinburgh, Scotland.",
+         "url":"http://www.ibtimes.com/hypnotherapist-had-sex-14-year-old-money-florida-police-say-2671047",
+         "urlToImage":"http://s1.ibtimes.com/sites/www.ibtimes.com/files/styles/full/public/2018/04/11/police-car.jpg",
+         "publishedAt":"2018-04-11T09:10:00Z"
+      },
+      {
+         "source":{
+            "id":null,
+            "name":"Espn.com"
+         },
+         "author":null,
+         "title":"G League call-up Andre Ingram scores 19 in NBA debut for Lakers",
+         "description":"Rockets star Chris Paul told G League call-up Andre Ingram that he was in awe of his story, saying Ingram's \"10 years grinding\" in the NBA's developmental league before finally making his NBA debut Tuesday was \"unbelievable.\"",
+         "url":"http://www.espn.com/nba/story/_/id/23110530/andre-ingram-los-angeles-lakers-scores-19-points-nba-debut-decade-g-league",
+         "urlToImage":"http://a.espncdn.com/combiner/i?img=%2Fphoto%2F2018%2F0410%2Fr354776_1296x729_16%2D9.jpg",
+         "publishedAt":"2018-04-11T08:02:27Z"
+      },
+      {
+         "source":{
+            "id":null,
+            "name":"Espn.com"
+         },
+         "author":null,
+         "title":"Mookie Betts' aggressive approach pays dividends in rout of Yankees",
+         "description":"First-year manager Alex Cora wanted Red Sox outfielder Mookie Betts to be more aggressive at the plate. The result was evident on Tuesday as Betts went 4-for-5 with a grand slam in Boston's 14-1 win.",
+         "url":"http://www.espn.com/mlb/story/_/id/23109132/boston-red-sox-mookie-betts-outshines-new-york-yankees-aaron-judge-giancarlo-stanton",
+         "urlToImage":"http://a1.espncdn.com/combiner/i?img=%2Fphoto%2F2018%2F0410%2Fr354664_1296x729_16%2D9.jpg",
+         "publishedAt":"2018-04-11T04:43:05Z"
+      },
+      {
+         "source":{
+            "id":null,
+            "name":"Cbslocal.com"
+         },
+         "author":"CBSDenver",
+         "title":"'Cop Rocks' Program Encourage Positive Relationship With Police Officers",
+         "description":"Arvada police are hoping a new program will create positive interactions between officers and children in the community.",
+         "url":"http://denver.cbslocal.com/2018/04/10/cop-rocks-positive-relationships/",
+         "urlToImage":"https://cbsdenver.files.wordpress.com/2018/04/arvada-cop-rocks-10pkg-transfer_frame_957.png?w=1440",
+         "publishedAt":"2018-04-11T03:23:00Z"
+      },
+      {
+         "source":{
+            "id":"nbc-news",
+            "name":"NBC News"
+         },
+         "author":"Ben Collins",
+         "title":"Russia-linked account pushed fake Hillary Clinton sex video",
+         "description":"A pornographic video that falsely claimed to show Hillary Clinton engaged in a sex act has been traced back to an account that Reddit acknowledged on Tuesday is linked to Russia’ Internet Research Agency.",
+         "url":"https://www.nbcnews.com/tech/security/russia-linked-account-pushed-fake-hillary-clinton-sex-video-n864871",
+         "urlToImage":"https://media2.s-nbcnews.com/j/newscms/2018_15/2228976/171116-google-street-view-internet-research-agency-russia-ew-1114a_1baabf71c3a69e02c66a474b203cc7ce.1200;630;7;70;5.jpg",
+         "publishedAt":"2018-04-10T23:49:00Z"
+      },
+      {
+         "source":{
+            "id":"cbs-news",
+            "name":"CBS News"
+         },
+         "author":"CBS/AP",
+         "title":"Sinclair TV host's show canceled for tweeting sexual threat at David Hogg",
+         "description":"Conservative commentator tweeted that he would use \"a hot poker\" to sexually assault 17-year-old survivor of Florida high school shooting David Hogg",
+         "url":"https://www.cbsnews.com/news/jamie-allman-sinclair-canceled-hot-poker-david-hogg/",
+         "urlToImage":"https://cbsnews1.cbsistatic.com/hub/i/r/2018/04/10/fb8ac914-ae32-41ca-ada9-3e66410d6de5/thumbnail/1200x630g2/5a3eab86a0fdbacb013c5a02661fe1a9/jamie-allman.jpg",
+         "publishedAt":"2018-04-10T14:55:55Z"
+      },
+      {
+         "source":{
+            "id":null,
+            "name":"Uproxx.com"
+         },
+         "author":null,
+         "title":"Kevin Durant Argues The One-And-Done Rule Has Turned College Basketball Coaches Into 'Daycare Owners'",
+         "description":null,
+         "url":"https://uproxx.com/dimemag/kevin-durant-one-and-done-college-basketball-daycare-owners/",
+         "urlToImage":null,
+         "publishedAt":"2018-04-09T19:01:17Z"
+      }
+   ]
+}

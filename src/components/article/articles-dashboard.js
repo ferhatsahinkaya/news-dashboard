@@ -1,17 +1,28 @@
 import { connect } from "react-redux"
 import React from 'react'
 import Articles from './articles'
+import myData from './static_news.json'
 
-const NewsAPI = require('newsapi')
-const newsapi = new NewsAPI(process.env.REACT_APP_API_KEY)
+// const NewsAPI = require('newsapi')
+// const newsapi = new NewsAPI(process.env.REACT_APP_API_KEY)
+
+const staticDataRetriever = {
+  then: function(method) {
+    method(myData)
+  }
+}
+
 const articleRetriever = [ { filter: 'top-headlines',
-                             retriever: (page, props) => newsapi.v2.topHeadlines({ sources: props.sources.join(','),
-                                                                                   page: page }) },
+                             retriever: (page, props) => staticDataRetriever },
+                             /* newsapi.v2.topHeadlines({ sources: props.sources.join(','),
+                                                                                   page: page }) }, */
                            { filter: 'everything',
-                             retriever: (page, props) => newsapi.v2.everything({ sources: props.sources.join(','),
+                             retriever: (page, props) => staticDataRetriever }
+
+                             /* newsapi.v2.everything({ sources: props.sources.join(','),
                                                                                  from: props.fromDate,
                                                                                  to: props.toDate,
-                                                                                 page: page }) } ]
+                                                                                 page: page }) } */ ]
 
 export class ArticlesDashboard extends React.Component {
   constructor() {
@@ -33,7 +44,7 @@ export class ArticlesDashboard extends React.Component {
         this.setState({
           articles: this.state.articles.concat(response.articles)
         }, () => {
-          if(response.articles.length > 0) {
+          if(response.articles.length > 0 && page < 10) {
             this.retrieveArticles(page+1)
           }
         })
